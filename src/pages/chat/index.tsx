@@ -1,30 +1,35 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
+import { useRecoilValue } from "recoil";
+import { ChatLog } from "../../state";
+import { useEffect, useRef } from "react";
 
 const Chat = () => {
+  const chat = useRef<HTMLDivElement>(null);
+
+  const chatLog = useRecoilValue(ChatLog);
+
+  let data = chatLog.map((data) => {
+    return (
+      <C.ChatBox string={data.string} ismychat={data.isMyChat}></C.ChatBox>
+    );
+  });
+
+  useEffect(() => {
+    if (chat.current?.scrollHeight)
+      chat.current.scrollTop = chat.current?.scrollHeight;
+  }, [chatLog]);
+
   return (
     <>
       <C.Header />
       <Container>
-        <ChatSection>
+        <ChatSection ref={chat}>
           <CourageText>자신의 감정을 부담없이 표현해보세요 !</CourageText>
-          <C.ChatBox
-            ismychat={true}
-            string="백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼"
-          />
-          <C.ChatBox
-            ismychat={false}
-            string="백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼백진암X발돼지X끼"
-          />
-          <C.ChatBox ismychat={true} string="백진암X발돼지X끼" />
-          <C.ChatBox ismychat={false} string="백진암X발돼지X끼" />
-          <C.ChatBox ismychat={true} string="백진암X발돼지X끼" />
-          <C.ChatBox ismychat={false} string="백진암X발돼지X끼" />
-          <C.ChatBox ismychat={true} string="백진암X발돼지X끼" />
-          <C.ChatBox ismychat={false} string="백진암X발돼지X끼" />
+          {data}
         </ChatSection>
         <InputSection>
-          <C.ChatInput />
+          <C.ChatInput placeholder="하고 싶은 말을 직접 적어보세요!" />
         </InputSection>
       </Container>
     </>
@@ -72,12 +77,14 @@ const ChatSection = styled.div`
   flex-direction: column;
   box-sizing: border-box;
 
+  gap: 1.25rem;
+
   overflow-y: auto;
 `;
 
 const InputSection = styled.div`
   flex-grow: 1;
-  background-color: red;
+  display: flex;
 
   position: relative;
 `;
