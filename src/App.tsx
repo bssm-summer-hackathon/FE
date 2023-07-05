@@ -14,6 +14,8 @@ function App() {
           <Route path="/chat" element={<P.Chat />}></Route>
           <Route path="/notloggedin" element={<P.NotLoggedIn />}></Route>
           <Route path="/calender" element={<P.CalenderPage />}></Route>
+          <Route path="/login" element={<P.Register usage="login" />}></Route>
+          <Route path="/signup" element={<P.Register usage="signup" />}></Route>
         </Routes>
       </BrowserRouter>
     </>

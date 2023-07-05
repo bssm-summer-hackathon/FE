@@ -19,8 +19,12 @@ const Header = () => {
         </MenuText>
       </MenuSection>
       <RegisterSection>
-        <RegisterButton string="로그인" />
-        <RegisterButton string="회원가입" />
+        <Link to="/login">
+          <RegisterButton string="로그인" />
+        </Link>
+        <Link to="/signup">
+          <RegisterButton string="회원가입" />
+        </Link>
       </RegisterSection>
     </Container>
   );
