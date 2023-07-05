@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import * as C from "../index";
 
@@ -14,7 +15,9 @@ const Login = () => {
         <InfoInput placeholder="비밀번호" type="password" />
       </InputSection>
       <FooterSection>
-        <C.BeforeButton />
+        <Link to="/">
+          <C.BeforeButton />
+        </Link>
         <C.RegisterButton string="로그인" />
       </FooterSection>
     </Container>
