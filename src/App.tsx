@@ -16,6 +16,7 @@ function App() {
           <Route path="/calender" element={<P.CalenderPage />}></Route>
           <Route path="/login" element={<P.Register usage="login" />}></Route>
           <Route path="/signup" element={<P.Register usage="signup" />}></Route>
+          <Route path="/landing" element={<P.LadingPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
