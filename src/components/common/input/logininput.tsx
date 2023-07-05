@@ -6,7 +6,7 @@ const LoginButton = () => {
     );
 }
 
-export default LoginButton
+export default LoginButton;
 
 const Container = styled.div`
     
