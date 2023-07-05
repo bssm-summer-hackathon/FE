@@ -6,4 +6,5 @@ export { default as RecordStep1 } from "./record_step1";
 export { default as RecordStep2 } from "./record_step2";
 export { default as RecordStep3 } from "./record_step3";
 export { default as RecordStep4 } from "./record_step4";
+export { default as CalenderPage } from "./calender";
 export { default as NotLoggedIn } from "./notloggedin";
