@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 const Main = () => {
-    return <Container></Container>
-}
+  return <Container></Container>;
+};
 
 export default Main;
 

@@ -1,12 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import * as C from "./components/index";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={"Fef"}></Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <C.Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={"Fef"}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
