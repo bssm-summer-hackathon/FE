@@ -6,7 +6,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<P.Chat />}></Route>
+          <Route path="/" element={<P.Recorded />}></Route>
         </Routes>
       </BrowserRouter>
     </>

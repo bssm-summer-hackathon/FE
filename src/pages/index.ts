@@ -4,3 +4,4 @@ export { default as Main } from "./main";
 export { default as Record } from "./record";
 export { default as Register } from "./register";
 export { default as View } from "./view";
+export { default as Recorded } from "./recorded";
