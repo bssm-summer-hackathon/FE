@@ -1,17 +1,17 @@
 import { styled } from "styled-components";
 
-const HeaderLogo = () => {
+const RegisterLogo = () => {
   return <Container></Container>;
 };
 
-export default HeaderLogo;
+export default RegisterLogo;
 
 const Container = styled.div`
-  width: 5.75rem;
-  height: 3.2rem;
+  width: 2.875rem;
+  height: 4.375rem;
 
   background-size: cover;
   background-repeat: no-repeat;
 
-  background-image: url("/images/logo/headerlogo.svg");
+  background-image: url("/images/logo/registerlogo.svg");
 `;

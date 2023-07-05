@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-const RegisterButton = (props: any) => {
+const RegisterButton = (props: {string: string}) => {
   return <Container>{props.string}</Container>;
 };
 
@@ -10,7 +10,7 @@ const Container = styled.div`
   width: max-content;
   height: min-content;
 
-  padding: 0.675rem 1.25rem 0.675rem 1.25rem;
+  padding: 0.525rem 1.25rem 0.525rem 1.25rem;
 
   background-color: #000000;
   color: rgb(255, 255, 255);
@@ -19,4 +19,8 @@ const Container = styled.div`
   font-size: 1rem;
 
   border-radius: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
