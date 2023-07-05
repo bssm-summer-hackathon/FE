@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import HeaderLogo from "../logo/headerlogo";
+import { Link } from "react-router-dom";
 import RegisterButton from "../button/registerbutton";
 
 const Header = () => {
@@ -7,10 +8,15 @@ const Header = () => {
     <Container>
       <MenuSection>
         <HeaderLogo />
-        <MenuText>소개</MenuText>
-        <MenuText>채팅</MenuText>
-        <MenuText>기록</MenuText>
-        <MenuText>갤러리</MenuText>
+        <MenuText>
+          <Link to="/chat">채팅하기</Link>
+        </MenuText>
+        <MenuText>
+          <Link to="/calender">나의기록</Link>
+        </MenuText>
+        <MenuText>
+          <Link to="/record/step1">기록하기</Link>
+        </MenuText>
       </MenuSection>
       <RegisterSection>
         <RegisterButton string="로그인" />
@@ -24,7 +30,7 @@ export default Header;
 
 const Container = styled.div`
   width: 100vw;
-  height: 7rem;
+  height: 5rem;
 
   position: fixed;
 
@@ -34,6 +40,10 @@ const Container = styled.div`
 
   padding: 0rem 5.25rem 0rem 5.25rem;
   box-sizing: border-box;
+
+  background-color: white;
+
+  z-index: 1;
 
   ::before {
     content: "";
@@ -61,7 +71,7 @@ const MenuSection = styled.div`
 
 const MenuText = styled.div`
   font-family: "NanumSquareRound";
-  font-size: 1.125rem;
+  font-size: 1.175rem;
 
   color: #b8b8b8;
 

@@ -49,6 +49,9 @@ const Container = styled.div`
   flex-direction: column;
 
   gap: 2rem;
+  ::-webkit-scrollbar {
+  display: none;
+}
 `;
 
 const CourageText = styled.div`
