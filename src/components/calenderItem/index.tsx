@@ -34,7 +34,7 @@ const IndexBox = styled.div`
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-family: NanumSquareRoundOTF;
+  font-family: "NanumSquareRound";
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -56,8 +56,8 @@ const ContentBox = styled.div`
 `;
 
 const ContentText = styled.p`
+  font-family: "NanumSquareRound";
   color: #000;
-  font-family: NanumSquareRoundOTF;
   font-size: 24px;
   font-style: normal;
   font-weight: 800;

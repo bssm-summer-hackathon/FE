@@ -49,7 +49,7 @@ const Dropdown = styled.div`
   display: flex;
   align-content: center;
   color: #000;
-  font-family: NanumSquareRoundOTF;
+  font-family: "NanumSquareRound";
   font-size: 28px;
   font-style: normal;
   font-weight: 800;
