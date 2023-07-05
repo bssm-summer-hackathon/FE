@@ -13,10 +13,7 @@ const CalenderPage = () => {
             <ArrowIcon src="/images/arrow/arrow-up.svg" alt="arrow-up" />
           </Dropdown>
           <CalenderList>
-            <CalenderItem />
-            <CalenderItem />
-            <CalenderItem />
-            <CalenderItem />
+            <CalenderItem id={1} content="안녕" imgSrc="이미지링크" />
           </CalenderList>
         </CalenderWrap>
       </StyledCalender>

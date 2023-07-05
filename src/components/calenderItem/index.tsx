@@ -1,13 +1,19 @@
 import { styled } from "styled-components";
 
-const CalenderItem = () => {
+interface PropsType {
+  id: number;
+  content: string;
+  imgSrc: string;
+}
+
+const CalenderItem = ({ id, content, imgSrc }: PropsType) => {
   return (
     <StyledCalenderItem>
-      <IndexBox>1</IndexBox>
+      <IndexBox>{id}</IndexBox>
       <ContentBox>
-        <ContentText>오랜만에 친구들이랑 모여서 밥 먹은 날</ContentText>
+        <ContentText>{content}</ContentText>
       </ContentBox>
-      <CalenderImage />
+      <CalenderImage src={imgSrc} />
     </StyledCalenderItem>
   );
 };
@@ -59,7 +65,7 @@ const ContentText = styled.p`
 `;
 
 const CalenderImage = styled.img`
-  width: 15%;
+  width: 126px;
   height: 100%;
   border-radius: 10px;
   background: linear-gradient(180deg, #d9d9d9 0%, rgba(0, 0, 0, 0.5) 100%);
