@@ -4,13 +4,13 @@ export const ChatLog = atom({
   key: "chatlog",
   default: [
     {
-      isMyChat: true,
-      string: "wefwef",
+      isMyChat: false,
+      string: "무엇이든 말해주세요!! 귀 기울여 들어드릴게요~~!",
     },
   ],
 });
 
 export const CurrentChat = atom({
-    key: "currentchat",
-    default: "",
-})
+  key: "currentchat",
+  default: "",
+});
