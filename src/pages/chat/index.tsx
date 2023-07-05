@@ -47,11 +47,12 @@ const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+  position: relative;
 
   gap: 2rem;
   ::-webkit-scrollbar {
-  display: none;
-}
+    display: none;
+  }
 `;
 
 const CourageText = styled.div`
@@ -71,7 +72,7 @@ const CourageText = styled.div`
 
 const ChatSection = styled.div`
   width: 100%;
-  height: 30rem;
+  height: 100%;
 
   position: relative;
 
@@ -86,7 +87,8 @@ const ChatSection = styled.div`
 `;
 
 const InputSection = styled.div`
-  flex-grow: 1;
+  width: 100%;
+  height: 13%;
   display: flex;
 
   position: relative;

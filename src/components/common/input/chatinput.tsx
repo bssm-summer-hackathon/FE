@@ -63,7 +63,7 @@ const Container = styled.input`
 
 const ButtonContainer = styled.input`
   height: 100%;
-  width: 7.5%;
+  width: 10%;
 
   border-radius: 0.25rem;
 

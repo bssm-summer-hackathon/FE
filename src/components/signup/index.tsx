@@ -18,7 +18,7 @@ const Login = () => {
         <Link to="/">
           <C.BeforeButton />
         </Link>
-        <C.RegisterButton string="로그인" />
+        <C.RegisterButton string="회원가입" />
       </FooterSection>
     </Container>
   );
