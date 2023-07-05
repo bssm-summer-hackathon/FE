@@ -61,7 +61,7 @@ const MenuSection = styled.div`
 
 const MenuText = styled.div`
   font-family: "NanumSquareRound";
-  font-size: 1rem;
+  font-size: 1.125rem;
 
   color: #b8b8b8;
 

@@ -1,20 +1,22 @@
 import { styled } from "styled-components";
-import RegisterLogo from "../common/logo/registerlogo";
-import RegisterButton from "../common/button/registerbutton";
+import * as C from "../index";
 
 const Login = () => {
   return (
     <Container>
       <LoginHeader>
-        <RegisterLogo />
-        <Title>로그인</Title>
+        <C.RegisterLogo />
+        <Title>회원가입</Title>
       </LoginHeader>
       <InputSection>
         <InfoInput placeholder="이름" />
         <InfoInput placeholder="아이디" />
         <InfoInput placeholder="비밀번호" type="password" />
       </InputSection>
-      <RegisterButton string="회원가입" />
+      <FooterSection>
+        <C.BeforeButton />
+        <C.RegisterButton string="로그인" />
+      </FooterSection>
     </Container>
   );
 };
@@ -83,4 +85,12 @@ const InfoInput = styled.input`
     transform: scale(1.025);
     box-shadow: 0 -2px 0 0 #000000 inset;
   }
+`;
+
+const FooterSection = styled.div`
+  width: 100%;
+  height: min-content;
+
+  display: flex;
+  justify-content: space-between;
 `;

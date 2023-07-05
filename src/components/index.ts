@@ -1,5 +1,10 @@
-export { default as LoginButton } from "./common/button/registerbutton";
+export { default as RegisterButton } from "./common/button/registerbutton";
+export { default as BeforeButton } from "./common/button/beforebutton";
 export { default as Header } from "./common/header";
 export { default as LoginInput } from "./common/input/logininput";
+export { default as ChatInput } from "./common/input/chatinput";
 export { default as Login } from "./login";
 export { default as Signup } from "./signup";
+export { default as HeaderLogo } from "./common/logo/headerlogo";
+export { default as RegisterLogo } from "./common/logo/registerlogo";
+export { default as ChatBox } from "./chatbox";

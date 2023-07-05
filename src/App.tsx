@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import * as C from "./components/index";
 import * as P from "./pages/index";
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<P.Register usage="signup" />}></Route>
+          <Route path="/" element={<P.Chat />}></Route>
         </Routes>
       </BrowserRouter>
     </>
