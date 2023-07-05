@@ -1,5 +1,6 @@
+import * as C from "./components/index";
 function App() {
-  return <div>text</div>;
+  return <C.Calender />;
 }
 
 export default App;
