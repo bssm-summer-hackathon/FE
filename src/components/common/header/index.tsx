@@ -1,12 +1,12 @@
 import { styled } from "styled-components";
-import Logo from "../logo/headerlogo";
+import HeaderLogo from "../logo/headerlogo";
 import RegisterButton from "../button/registerbutton";
 
 const Header = () => {
   return (
     <Container>
       <MenuSection>
-        <Logo />
+        <HeaderLogo />
         <MenuText>소개</MenuText>
         <MenuText>채팅</MenuText>
         <MenuText>기록</MenuText>
@@ -26,7 +26,7 @@ const Container = styled.div`
   width: 100vw;
   height: 7rem;
 
-  position: relative;
+  position: fixed;
 
   display: flex;
   justify-content: space-between;
@@ -65,30 +65,15 @@ const MenuText = styled.div`
 
   color: #b8b8b8;
 
-  ::before {
-    content: "";
-    width: 0px;
-    height: 0px;
-  }
+  padding: 0rem 0.25rem;
+  box-sizing: border-box;
 
-  :hover {
+  transition-timing-function: cubic-bezier(0, 0.44, 0.47, 1.32);
+  transition-duration: 0.5s;
+
+  &:hover {
     cursor: pointer;
     color: #000000;
-
-    ::before {
-      content: "";
-      width: 1rem;
-      height: 0.0125rem;
-
-      position: absolute;
-      bottom: -0.125rem;
-      left: 0;
-
-      background-color: #000000;
-
-      transition-timing-function: cubic-bezier(0, 0.44, 0.47, 1.32);
-      transition-duration: 0.25s;
-    }
   }
 `;
 
