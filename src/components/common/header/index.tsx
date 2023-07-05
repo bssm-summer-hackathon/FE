@@ -32,7 +32,7 @@ const Container = styled.div`
   width: 100vw;
   height: 5rem;
 
-  position: fixed;
+  position: sticky;
 
   display: flex;
   justify-content: space-between;
