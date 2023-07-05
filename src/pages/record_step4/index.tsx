@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 
-const Recorded = () => {
+const RecordStep4 = () => {
   return (
     <>
       <C.Header />
@@ -15,7 +15,7 @@ const Recorded = () => {
   );
 };
 
-export default Recorded;
+export default RecordStep4;
 
 const Container = styled.div`
   width: 100vw;
