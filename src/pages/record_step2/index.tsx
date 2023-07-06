@@ -85,7 +85,17 @@ const RecordStep2 = () => {
               {goodEmotionList.map((item) => (
                 <EmotionItem
                   isPick={item.isPick}
-                  onClick={() => handleGoodEmotionClick(item.text, item.isPick)}
+                  onClick={() => {
+                    if (
+                      filteredGoodEmotionList.length +
+                        filteredBadEmotionList.length >=
+                        3 &&
+                      item.isPick === false
+                    ) {
+                      return;
+                    }
+                    handleGoodEmotionClick(item.text, item.isPick);
+                  }}
                 >
                   {item.text}
                 </EmotionItem>
@@ -98,7 +108,17 @@ const RecordStep2 = () => {
               {badEmotionList.map((item) => (
                 <EmotionItem
                   isPick={item.isPick}
-                  onClick={() => handleBadEmotionClick(item.text, item.isPick)}
+                  onClick={() => {
+                    if (
+                      filteredGoodEmotionList.length +
+                        filteredBadEmotionList.length >=
+                        3 &&
+                      item.isPick === false
+                    ) {
+                      return;
+                    }
+                    handleBadEmotionClick(item.text, item.isPick);
+                  }}
                 >
                   {item.text}
                 </EmotionItem>

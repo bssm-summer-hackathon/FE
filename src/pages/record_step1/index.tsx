@@ -1,8 +1,14 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 import { Link } from "react-router-dom";
+import "./style.css";
+import { useState } from "react";
 
 const RecordStep1 = () => {
+  const [year, setYear] = useState("");
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
+
   return (
     <>
       <C.Header />
@@ -10,10 +16,61 @@ const RecordStep1 = () => {
         <TimeInputSection>
           <TimeSection>
             <Title>오늘 날짜를 입력해 주세요</Title>
-            <YearInput placeholder="YYYY" />
+            <YearInput
+              placeholder="YYYY"
+              type="number"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                if (Number(e.target.value) >= 2023) {
+                  setYear("2023");
+                  return;
+                } else if (e.target.value === "") {
+                  setYear("");
+                  return;
+                } else if (Number(e.target.value) <= 0) {
+                  setYear("");
+                  return;
+                }
+                setYear(e.target.value);
+              }}
+              value={year}
+            ></YearInput>
             <MonthDaySection>
-              <MonthInput placeholder="MM" />
-              <DayInput placeholder="DD" />
+              <MonthInput
+                placeholder="MM"
+                type="number"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  if (Number(e.target.value) >= 12) {
+                    setMonth("12");
+                    return;
+                  } else if (e.target.value === "") {
+                    setMonth("");
+                    return;
+                  } else if (Number(e.target.value) <= 1) {
+                    setMonth("1");
+                    return;
+                  }
+                  setMonth(e.target.value);
+                }}
+                value={month}
+              />
+              <DayInput
+                placeholder="DD"
+                type="number"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  if (Number(e.target.value) >= 31) {
+                    setDay("31");
+                    return;
+                  } else if (e.target.value === "") {
+                    setDay("");
+                    return;
+                  } else if (Number(e.target.value) <= 1) {
+                    setDay("1");
+                    return;
+                  }
+                  setDay(e.target.value);
+                }}
+                value={day}
+              />
             </MonthDaySection>
           </TimeSection>
           <NextButton to="/record/step2"> {">"} </NextButton>
