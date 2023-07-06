@@ -1,18 +1,60 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import axios from "axios";
+import { DiaryInfo } from "../../state";
 
 const RecordStep3 = () => {
+  const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+
   return (
     <>
       <C.Header />
       <Container>
         <TextSection>
           <TextWrapper>오늘 하루 있었던 일을 기록해 봐요.</TextWrapper>
-          <Input placeholder="제목" />
-          <TextArea placeholder="오늘 있었던 일을 기록해 주세요." />
+          <Input
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setDiaryInfo({
+                ...diaryInfo,
+                diaryTitle: e.target.value,
+              });
+            }}
+            placeholder="제목"
+          />
+          <TextArea
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+              setDiaryInfo({
+                ...diaryInfo,
+                diaryContent: e.target.value,
+              });
+              console.log(diaryInfo);
+            }}
+            placeholder="오늘 있었던 일을 기록해 주세요."
+          />
         </TextSection>
-        <NextButton to="/record/step4"> {">"} </NextButton>
+        <NextButton
+          to="/record/step4"
+          onClick={async () => {
+            await axios.post("http://localhost:3232/api/image/create", {
+              diaryInfo,
+            });
+
+            setDiaryInfo({
+              year: 0,
+              month: 0,
+              date: 0,
+              emotion1: "",
+              emotion2: "",
+              emotion3: "",
+              diaryTitle: "",
+              diaryContent: "",
+            });
+          }}
+        >
+          {">"}
+        </NextButton>
       </Container>
     </>
   );

@@ -29,6 +29,9 @@ const StyledCalender = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #ffffff;
+
+  padding-top: 50px;
+  box-sizing: border-box;
 `;
 
 const CalenderWrap = styled.div`
@@ -49,7 +52,7 @@ const Dropdown = styled.div`
   display: flex;
   align-content: center;
   color: #000;
-  font-family: NanumSquareRoundOTF;
+  font-family: "NanumSquareRound";
   font-size: 28px;
   font-style: normal;
   font-weight: 800;

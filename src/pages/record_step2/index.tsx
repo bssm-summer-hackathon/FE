@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { DiaryInfo } from "../../state";
 
 const RecordStep2 = () => {
+  const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+
   const [badEmotionList, setBadEmotionList] = useState([
     { text: "불안해요", isPick: false },
     { text: "우울해요", isPick: false },
@@ -69,6 +73,33 @@ const RecordStep2 = () => {
     });
   };
 
+  useEffect(() => {
+    const fullList = filteredGoodEmotionList.concat(filteredBadEmotionList);
+
+    if (fullList.length === 3)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+        emotion2: fullList[1],
+        emotion3: fullList[2],
+      });
+
+    if (fullList.length === 2)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+        emotion2: fullList[1],
+      });
+
+    if (fullList.length === 1)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+      });
+
+    console.log(diaryInfo);
+  }, [filteredGoodEmotionList, filteredBadEmotionList]);
+
   return (
     <>
       <C.Header />
@@ -85,7 +116,17 @@ const RecordStep2 = () => {
               {goodEmotionList.map((item) => (
                 <EmotionItem
                   isPick={item.isPick}
-                  onClick={() => handleGoodEmotionClick(item.text, item.isPick)}
+                  onClick={() => {
+                    if (
+                      filteredGoodEmotionList.length +
+                        filteredBadEmotionList.length >=
+                        3 &&
+                      item.isPick === false
+                    ) {
+                      return;
+                    }
+                    handleGoodEmotionClick(item.text, item.isPick);
+                  }}
                 >
                   {item.text}
                 </EmotionItem>
@@ -98,7 +139,17 @@ const RecordStep2 = () => {
               {badEmotionList.map((item) => (
                 <EmotionItem
                   isPick={item.isPick}
-                  onClick={() => handleBadEmotionClick(item.text, item.isPick)}
+                  onClick={() => {
+                    if (
+                      filteredGoodEmotionList.length +
+                        filteredBadEmotionList.length >=
+                        3 &&
+                      item.isPick === false
+                    ) {
+                      return;
+                    }
+                    handleBadEmotionClick(item.text, item.isPick);
+                  }}
                 >
                   {item.text}
                 </EmotionItem>
