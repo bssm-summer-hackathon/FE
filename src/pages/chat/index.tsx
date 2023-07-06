@@ -1,24 +1,29 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
-import { useRecoilValue } from "recoil";
-import { ChatLog } from "../../state";
+import { useRecoilState } from "recoil";
+import { ChatLog, ChatData } from "../../state";
 import { useEffect, useRef } from "react";
 
 const Chat = () => {
   const chat = useRef<HTMLDivElement>(null);
 
-  const chatLog = useRecoilValue(ChatLog);
+  const [chatLog, setChatLog] = useRecoilState(ChatLog);
 
-  let data = chatLog.map((data) => {
-    return (
-      <C.ChatBox string={data.string} ismychat={data.isMyChat}></C.ChatBox>
-    );
-  });
+  const [data, setData] = useRecoilState(ChatData);
 
   useEffect(() => {
     if (chat.current?.scrollHeight)
       chat.current.scrollTop = chat.current?.scrollHeight;
   }, [chatLog]);
+
+  useEffect(() => {
+    setChatLog(
+      chatLog.concat({
+        string: data.string,
+        isMyChat: data.isMyChat,
+      })
+    );
+  }, [data]);
 
   return (
     <>
@@ -26,7 +31,12 @@ const Chat = () => {
       <Container>
         <ChatSection ref={chat}>
           <CourageText>자신의 감정을 부담없이 표현해보세요 !</CourageText>
-          {data}
+          {chatLog.map((data) => {
+            if (data.string !== "")
+              return (
+                <C.ChatBox string={data.string} isMyChat={data.isMyChat} />
+              );
+          })}
         </ChatSection>
         <InputSection>
           <C.ChatInput placeholder="하고 싶은 말을 직접 적어보세요!" />
@@ -50,8 +60,8 @@ const Container = styled.div`
 
   gap: 2rem;
   ::-webkit-scrollbar {
-  display: none;
-}
+    display: none;
+  }
 `;
 
 const CourageText = styled.div`
