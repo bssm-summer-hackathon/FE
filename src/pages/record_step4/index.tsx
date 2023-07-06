@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 import Main from "../main";
+import RegisterButton from "../../components/common/button/registerbutton";
 
 const RecordStep4 = () => {
   return (
@@ -28,6 +29,9 @@ const RecordStep4 = () => {
               오랜만에 만날 수 있는 기회가 생겼다.
             </DiaryParagraph>
           </DiarySection>
+          <ButtonBox>
+            <RegisterButton string="등록"/>
+          </ButtonBox>
         </MainElementSection>
       </Container>
     </>
@@ -121,4 +125,10 @@ const DiaryParagraph = styled.div`
   margin-top: 1rem;
   white-space: pre-line;
   word-break: keep-all;
+`;
+
+const ButtonBox = styled.div`
+  position: absolute;
+  margin-top: 32%;
+  right: 100px;
 `;
