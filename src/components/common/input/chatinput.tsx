@@ -1,15 +1,18 @@
 import { styled } from "styled-components";
 import { useRecoilState } from "recoil";
-import { ChatLog } from "../../../state";
+import { ChatLog, ChatData } from "../../../state";
 import React, { useState } from "react";
+import axios from "axios";
+import * as C from "../../index";
 
 const ChatInput = (props: any) => {
   const [currentChat, setCurrentChat] = useState("");
   const [chatLog, setChatLog] = useRecoilState(ChatLog);
+  const [chatData, setChatData] = useRecoilState(ChatData);
 
   return (
     <FormContainer
-      onSubmit={function (e: React.FormEvent<HTMLFormElement>) {
+      onSubmit={async function (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (currentChat !== "")
           setChatLog(
@@ -19,6 +22,19 @@ const ChatInput = (props: any) => {
             })
           );
         setCurrentChat("");
+        await axios
+          .post("http://localhost:3232/api/chat/chat", {
+            text: currentChat,
+          })
+          .then((res) => {
+            return setChatData({
+              string: res.data.content,
+              isMyChat: false,
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }}
     >
       <Container

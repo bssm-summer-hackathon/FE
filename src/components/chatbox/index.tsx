@@ -1,9 +1,9 @@
 import { keyframes, styled } from "styled-components";
 
-const ChatBox = (props: { string: string; ismychat: boolean }) => {
+const ChatBox = (props: { string: string; isMyChat: boolean }) => {
   return (
-    <Container ismychat={props.ismychat}>
-      <ChatContainer ismychat={props.ismychat}>{props.string}</ChatContainer>
+    <Container ismychat={props.isMyChat}>
+      <ChatContainer ismychat={props.isMyChat}>{props.string}</ChatContainer>
     </Container>
   );
 };
@@ -59,7 +59,6 @@ const ChatContainer = styled.div<{ ismychat: boolean }>`
   height: max-content;
 
   max-width: 25rem;
-  white-space: pre;
   padding: 1.25rem;
   border-radius: 2rem;
 
