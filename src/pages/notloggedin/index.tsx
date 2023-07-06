@@ -1,17 +1,21 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const NotLoggedIn = () => {
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      Navigate("/record/step4");
+    }, 15000);
+  }, []);
+
   return (
     <>
       <C.Header />
-      <Container>
-        로그인이 필요한 서비스에요.
-        <C.RegisterButton
-          method="login"
-          string="로그인 하러 가기"
-        ></C.RegisterButton>
-      </Container>
+      <Container>좀만기다려 로딩중이야</Container>
     </>
   );
 };
