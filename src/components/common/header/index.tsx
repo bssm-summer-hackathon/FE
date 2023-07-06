@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import HeaderLogo from "../logo/headerlogo";
 import { Link } from "react-router-dom";
-import RegisterButton from "../button/registerbutton";
 
 const Header = () => {
   return (
@@ -21,12 +20,8 @@ const Header = () => {
         </MenuText>
       </MenuSection>
       <RegisterSection>
-        <Link to="/login">
-          <RegisterButton string="로그인" />
-        </Link>
-        <Link to="/signup">
-          <RegisterButton string="회원가입" />
-        </Link>
+        <RegisterButton to="/login">로그인</RegisterButton>
+        <RegisterButton to="/signup">회원가입</RegisterButton>
       </RegisterSection>
     </Container>
   );
@@ -100,4 +95,24 @@ const RegisterSection = styled.div`
   display: flex;
 
   gap: 1.5rem;
+`;
+
+const RegisterButton = styled(Link)`
+  width: max-content;
+  height: min-content;
+  display: flex;
+
+  padding: 0.525rem 1.25rem 0.525rem 1.25rem;
+
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+
+  font-family: "NanumSquareRound";
+  font-size: 1rem;
+
+  border-radius: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

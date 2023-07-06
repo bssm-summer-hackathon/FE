@@ -3,10 +3,11 @@ import * as C from "../../components/index";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
-import { DiaryInfo } from "../../state";
+import { DiaryInfo, ImgInfo } from "../../state";
 
 const RecordStep3 = () => {
   const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+  const [imgInfo, setImgInfo] = useRecoilState(ImgInfo);
 
   return (
     <>
@@ -37,19 +38,15 @@ const RecordStep3 = () => {
         <NextButton
           to="/record/step4"
           onClick={async () => {
-            await axios.post("http://localhost:3232/api/image/create", {
-              diaryInfo,
-            });
+            const response = await axios.post(
+              "http://localhost:3232/api/image/create",
+              {
+                diaryInfo,
+              }
+            );
 
-            setDiaryInfo({
-              year: 0,
-              month: 0,
-              date: 0,
-              emotion1: "",
-              emotion2: "",
-              emotion3: "",
-              diaryTitle: "",
-              diaryContent: "",
+            setImgInfo({
+              imgurl: response
             });
           }}
         >
