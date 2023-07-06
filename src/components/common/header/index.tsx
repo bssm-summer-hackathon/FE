@@ -22,10 +22,10 @@ const Header = () => {
       </MenuSection>
       <RegisterSection>
         <Link to="/login">
-          <RegisterButton string="로그인" />
+          <RegisterButton method="login" string="로그인" />
         </Link>
         <Link to="/signup">
-          <RegisterButton string="회원가입" />
+          <RegisterButton method="signup" string="회원가입" />
         </Link>
       </RegisterSection>
     </Container>

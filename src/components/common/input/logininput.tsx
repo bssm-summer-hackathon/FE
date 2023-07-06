@@ -1,8 +1,16 @@
 import { styled } from "styled-components";
 
-const LoginInput = (props: { placeholder: string; type: string }) => {
+const LoginInput = (props: {
+  placeholder: string;
+  type: string;
+  onChange: any;
+}) => {
   return (
-    <Container placeholder={props.placeholder} type={props.type}></Container>
+    <Container
+      placeholder={props.placeholder}
+      type={props.type}
+      onChange={props.onChange}
+    ></Container>
   );
 };
 

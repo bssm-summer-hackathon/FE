@@ -1,12 +1,38 @@
 import { styled } from "styled-components";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import { SignUpInfo, LoginInfo } from "../../../state";
 
-const RegisterButton = (props: {string: string}) => {
-  return <Container>{props.string}</Container>;
+const RegisterButton = (props: { string: string; method: string }) => {
+  const [signUpInfo, setSignUpInfo] = useRecoilState(SignUpInfo);
+  const [loginInfo, setLoginInfo] = useRecoilState(LoginInfo);
+
+  return (
+    <Container
+      onClick={
+        props.method === "signup"
+          ? async () => {
+              await axios.post("http://localhost:3232/api/auth/signup", {
+                signUpInfo,
+              });
+            }
+          : async () => {
+              await axios.post("http://localhost:3232/api/auth/signup", {
+                loginInfo,
+              });
+            }
+      }
+      to="/"
+    >
+      {props.string}
+    </Container>
+  );
 };
 
 export default RegisterButton;
 
-const Container = styled.div`
+const Container = styled(Link)`
   width: max-content;
   height: min-content;
 

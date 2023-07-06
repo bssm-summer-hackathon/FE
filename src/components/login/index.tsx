@@ -1,8 +1,12 @@
 import { styled } from "styled-components";
 import * as C from "../index";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { LoginInfo } from "../../state";
 
 const Login = () => {
+  const [loginInfo, setLoginInfo] = useRecoilState(LoginInfo);
+
   return (
     <Container>
       <LoginHeader>
@@ -10,14 +14,32 @@ const Login = () => {
         <Title>로그인</Title>
       </LoginHeader>
       <InputSection>
-        <C.LoginInput placeholder="아이디" type="text" />
-        <C.LoginInput placeholder="비밀번호" type="password" />
+        <C.LoginInput
+          onChange={(e: any) => {
+            setLoginInfo({
+              ...loginInfo,
+              id: e.target.value,
+            });
+          }}
+          placeholder="아이디"
+          type="text"
+        />
+        <C.LoginInput
+          onChange={(e: any) => {
+            setLoginInfo({
+              ...loginInfo,
+              pw: e.target.value,
+            });
+          }}
+          placeholder="비밀번호"
+          type="password"
+        />
       </InputSection>
       <FooterSection>
         <Link to="/">
           <C.BeforeButton />
         </Link>
-        <C.RegisterButton string="로그인" />
+        <C.RegisterButton method="login" string="로그인" />
       </FooterSection>
     </Container>
   );
