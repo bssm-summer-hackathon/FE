@@ -18,7 +18,7 @@ const RegisterButton = (props: { string: string; method: string }) => {
               });
             }
           : async () => {
-              await axios.post("http://localhost:3232/api/auth/signup", {
+              await axios.post("http://localhost:3232/api/auth/login", {
                 loginInfo,
               });
             }
