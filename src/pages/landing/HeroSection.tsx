@@ -7,6 +7,8 @@ const HeroSection = () => {
         <LogoImage src="/images/logo/landing.svg" alt="landing-logo" />
         <LogoText>그림 일기로 돌아보는 나의 감정들</LogoText>
       </LogoWrapper>
+      <LogoWrapper>
+      </LogoWrapper>
     </StyledHeroSection>
   );
 };
@@ -17,7 +19,6 @@ const StyledHeroSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
 `;
 
@@ -36,4 +37,5 @@ const LogoText = styled.p`
   font-style: normal;
   font-weight: 800;
   line-height: normal;
+  font-family: 'NanumSquareRound';
 `;

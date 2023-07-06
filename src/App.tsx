@@ -6,7 +6,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<P.Main />}></Route>
+          <Route path="/" element={<P.LadingPage />}></Route>
           <Route path="/record/step1" element={<P.RecordStep1 />}></Route>
           <Route path="/record/step2" element={<P.RecordStep2 />}></Route>
           <Route path="/record/step3" element={<P.RecordStep3 />}></Route>
