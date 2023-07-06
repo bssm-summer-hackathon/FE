@@ -3,6 +3,7 @@ import * as C from "../../components/index";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DiaryInfo, ImgInfo } from "../../state";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const RecordStep4 = () => {
   const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
@@ -81,7 +82,7 @@ const ImgSection = styled.div<{ url: string }>`
   width: 28.75rem;
   height: 28.75rem;
 
-  background-image: url(${(props) => props.url});
+  background-image: url("/images/arrow/아씨발좆같다.jpg");
   background-size: cover;
 
   border-radius: 1rem 0 0 1rem;

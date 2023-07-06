@@ -60,3 +60,12 @@ export const ImgInfo = atom<any>({
     imgurl: "",
   },
 });
+
+export const UserInfo = atom<any>({
+  key: "UserInfo",
+  default: {
+    name: "",
+    id: "",
+    pw: "",
+  }
+})
