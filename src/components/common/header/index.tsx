@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <Container>
       <MenuSection>
-        <HeaderLogo />
+        <Link to="/">
+          <HeaderLogo />
+        </Link>
         <MenuText>
           <Link to="/chat">채팅하기</Link>
         </MenuText>

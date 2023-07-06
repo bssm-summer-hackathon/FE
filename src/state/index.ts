@@ -14,3 +14,11 @@ export const CurrentChat = atom({
   key: "currentchat",
   default: "",
 });
+
+export const ChatData = atom({
+  key: "chatdata",
+  default: {
+    isMyChat: false,
+    string: "",
+  },
+});
