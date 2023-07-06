@@ -39,7 +39,7 @@ const Chat = () => {
           })}
         </ChatSection>
         <InputSection>
-          <C.ChatInput placeholder="하고 싶은 말을 직접 적어보세요!" />
+          <C.ChatInput placeholder="상담하고 싶은 말을 직접 적어보세요!" />
         </InputSection>
       </Container>
     </>
