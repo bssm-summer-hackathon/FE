@@ -1,34 +1,42 @@
 import { styled } from "styled-components";
 import * as C from "../../components/index";
-import Main from "../main";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { DiaryInfo, ImgInfo } from "../../state";
+import { Link } from "react-router-dom";
 
 const RecordStep4 = () => {
+  const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+  const { imgurl } = useRecoilValue(ImgInfo);
+
   return (
     <>
       <C.Header />
       <Container>
         <Title>오늘 나의 일기에요 😙</Title>
         <MainElementSection>
-          <ImgSection />
+          <ImgSection url={imgurl} />
           <DiarySection>
-            <DiaryTitle>
-              오랜만에 친구들이랑 모여서
-              <br />밥 먹은 날
-            </DiaryTitle>
-            <DiaryParagraph>
-              오늘은 중학교 친구들이랑 모여서 밥을 먹었다. 다들 고등학교에
-              진학하고 바빠서 날 수 있는 날이 얼마 없었는데, 정말 오랜만에 만날
-              수 있는 기회가 생겼다. 오늘은 중학교 친구들이랑 모여서 밥을
-              먹었다. 다들 고등학교에 진학하고 바빠서 만날 수 있는 날이 얼마
-              없었는데, 정말 오랜만에 만날 수 있는 기회가 생겼다. 오늘은 중학교
-              친구들이랑 모여서 밥을 먹었다. 다들 고등학교에 진학하고 바빠서
-              만날 수 있는 날이 얼마 없었는데, 정말 오랜만에 만날 수 있는 기회가
-              생겼다. 오늘은 중학교 친구들이랑 모여서 밥을 먹었다. 다들
-              고등학교에 진학하고 바빠서 만날 수 있는 날이 얼마 없었는데, 정말
-              오랜만에 만날 수 있는 기회가 생겼다.
-            </DiaryParagraph>
+            <DiaryTitle>{diaryInfo.diaryTitle}</DiaryTitle>
+            <DiaryParagraph>{diaryInfo.diaryContent}</DiaryParagraph>
           </DiarySection>
         </MainElementSection>
+        <NextButton
+          to="/calender"
+          onClick={() => {
+            setDiaryInfo({
+              year: 0,
+              month: 0,
+              date: 0,
+              emotion1: "",
+              emotion2: "",
+              emotion3: "",
+              diaryTitle: "",
+              diaryContent: "",
+            });
+          }}
+        >
+          {">"}
+        </NextButton>
       </Container>
     </>
   );
@@ -69,13 +77,12 @@ const MainElementSection = styled.div`
   gap: 1.5rem;
 `;
 
-const ImgSection = styled.div`
+const ImgSection = styled.div<{ url: string }>`
   width: 28.75rem;
   height: 28.75rem;
 
-  background-image: url("");
-
-  background-color: red;
+  background-image: url(${(props) => props.url});
+  background-size: cover;
 
   border-radius: 1rem 0 0 1rem;
 `;
@@ -121,4 +128,36 @@ const DiaryParagraph = styled.div`
   margin-top: 1rem;
   white-space: pre-line;
   word-break: keep-all;
+`;
+
+const NextButton = styled(Link)`
+  height: 22%;
+  width: 35px;
+
+  position: absolute;
+
+  top: 21%;
+  right: 0;
+
+  margin: 170px 50px 0 50px;
+
+  font-weight: 600;
+  font-size: 2rem;
+  padding-bottom: 7px;
+  box-sizing: border-box;
+  color: white;
+
+  background-color: #4f4f4f;
+
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 0.44, 0.47, 1.32);
+
+  &:hover {
+    cursor: pointer;
+    width: 55px;
+  }
 `;
