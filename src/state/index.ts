@@ -37,20 +37,26 @@ export const DiaryInfo = atom({
   },
 });
 
-
 export const SignUpInfo = atom({
   key: "SignUpInfo",
   default: {
     name: "",
     id: "",
-    pw: ""
-  }
-})
+    pw: "",
+  },
+});
 
 export const LoginInfo = atom({
   key: "LoginInfo",
   default: {
     id: "",
-    pw: ""
-  }
-})
+    pw: "",
+  },
+});
+
+export const ImgInfo = atom<any>({
+  key: "ImgInfo",
+  default: {
+    imgurl: "",
+  },
+});
