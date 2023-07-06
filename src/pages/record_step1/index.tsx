@@ -2,12 +2,27 @@ import { styled } from "styled-components";
 import * as C from "../../components/index";
 import { Link } from "react-router-dom";
 import "./style.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { DiaryInfo } from "../../state";
 
 const RecordStep1 = () => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
+
+  const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+
+  useEffect(() => {
+    setDiaryInfo({
+      ...diaryInfo,
+      year: Number(year),
+      month: Number(month),
+      date: Number(day),
+    });
+
+    console.log(diaryInfo);
+  }, [year, month, day]);
 
   return (
     <>

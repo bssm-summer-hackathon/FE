@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import * as C from "../../components/index";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { DiaryInfo } from "../../state";
 
 const RecordStep2 = () => {
+  const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
+
   const [badEmotionList, setBadEmotionList] = useState([
     { text: "불안해요", isPick: false },
     { text: "우울해요", isPick: false },
@@ -68,6 +72,33 @@ const RecordStep2 = () => {
       return updatedList;
     });
   };
+
+  useEffect(() => {
+    const fullList = filteredGoodEmotionList.concat(filteredBadEmotionList);
+
+    if (fullList.length === 3)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+        emotion2: fullList[1],
+        emotion3: fullList[2],
+      });
+
+    if (fullList.length === 2)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+        emotion2: fullList[1],
+      });
+
+    if (fullList.length === 1)
+      setDiaryInfo({
+        ...diaryInfo,
+        emotion1: fullList[0],
+      });
+
+    console.log(diaryInfo);
+  }, [filteredGoodEmotionList, filteredBadEmotionList]);
 
   return (
     <>
