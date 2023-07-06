@@ -35,6 +35,7 @@ export default RegisterButton;
 const Container = styled(Link)`
   width: max-content;
   height: min-content;
+  display: flex;
 
   padding: 0.525rem 1.25rem 0.525rem 1.25rem;
 
