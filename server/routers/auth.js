@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { getConnection } = require("../models/connector");
 
 router.get("/login", async (req, res) => {
   const [result] = await getConnection().execute(
