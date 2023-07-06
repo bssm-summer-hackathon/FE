@@ -20,6 +20,9 @@ const RecordStep4 = () => {
             <DiaryTitle>{diaryInfo.diaryTitle}</DiaryTitle>
             <DiaryParagraph>{diaryInfo.diaryContent}</DiaryParagraph>
           </DiarySection>
+          <ButtonBox>
+            <RegisterButton string="등록"/>
+          </ButtonBox>
         </MainElementSection>
         <NextButton
           to="/calender"
