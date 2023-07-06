@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { getConnection } = require("../models/connector");
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   const [result] = await getConnection().execute(
     `select * from user where user_id = ?`,
-    [req.body.loginInfo.user_id]
+    [req.body.loginInfo.id]
   );
 
   if (result.length === 0) res.json("no user");
@@ -16,15 +16,15 @@ router.get("/login", async (req, res) => {
 router.post("/signup", async (req, res) => {
   const [result] = await getConnection().execute(
     `select * from user where user_id = ?`,
-    [req.body.signUpInfo.user_id]
+    [req.body.signUpInfo.id]
   );
 
   if (result.length !== 0) res.json("already user");
 
-  await getConnection().execute(`insert into user(user_id, pw) values(?, ?)`, [
-    req.body.signUpInfo.user_id,
-    req.body.signUpInfo.pw,
-  ]);
+  await getConnection().execute(
+    `insert into user(name, user_id, pw) values(?, ?, ?)`,
+    [req.body.signUpInfo.name, req.body.signUpInfo.id, req.body.signUpInfo.pw]
+  );
   res.json("success");
 });
 

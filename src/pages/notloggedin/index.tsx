@@ -7,7 +7,10 @@ const NotLoggedIn = () => {
       <C.Header />
       <Container>
         로그인이 필요한 서비스에요.
-        <C.RegisterButton string="로그인 하러 가기"></C.RegisterButton>
+        <C.RegisterButton
+          method="login"
+          string="로그인 하러 가기"
+        ></C.RegisterButton>
       </Container>
     </>
   );
