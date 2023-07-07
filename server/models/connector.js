@@ -7,7 +7,7 @@ const connect = async () => {
       host: "localhost",
       user: "root",
       database: "whooing",
-      password: "qpalzm0408",
+      password: "pwisnotpw",
     });
   }
 };

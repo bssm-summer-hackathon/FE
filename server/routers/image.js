@@ -5,7 +5,7 @@ const { getConnection } = require("../models/connector");
 const request = require("request");
 
 router.post("/create", async (req, res) => {
-  const apiKey = "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";
+  const apiKey = "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";
 
   const translateUrl = "https://openapi.naver.com/v1/papago/n2mt";
 
