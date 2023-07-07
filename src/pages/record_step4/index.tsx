@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const RecordStep4 = () => {
   const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
-  const { imgurl } = useRecoilValue(ImgInfo);
+  const imgInfo = useRecoilValue(ImgInfo);
 
   return (
     <>
@@ -14,7 +14,7 @@ const RecordStep4 = () => {
       <Container>
         <Title>오늘 나의 일기에요 😙</Title>
         <MainElementSection>
-          <ImgSection url={imgurl} />
+          <ImgSection url={imgInfo.imgurl} />
           <DiarySection>
             <DiaryTitle>{diaryInfo.diaryTitle}</DiaryTitle>
             <DiaryParagraph>{diaryInfo.diaryContent}</DiaryParagraph>
@@ -81,7 +81,7 @@ const ImgSection = styled.div<{ url: string }>`
   width: 28.75rem;
   height: 28.75rem;
 
-  background-image: url(${(props) => props.url});
+  background-image: url("${(props) => props.url}");
   background-size: cover;
 
   border-radius: 1rem 0 0 1rem;

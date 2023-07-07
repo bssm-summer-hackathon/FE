@@ -46,7 +46,7 @@ const RecordStep3 = () => {
             );
 
             setImgInfo({
-              imgurl: response
+              imgurl: response,
             });
           }}
         >
