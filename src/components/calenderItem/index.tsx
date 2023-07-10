@@ -127,6 +127,7 @@ const SelectDate = styled.div`
 
 const showDropdown = keyframes`
   from {
+    display: none;
     height: 0;
     width: 10rem;
 
@@ -136,6 +137,7 @@ const showDropdown = keyframes`
   }
 
   to {
+    display: grid;
     height: 9.375rem;
     width: 10rem,;
 
@@ -147,6 +149,7 @@ const showDropdown = keyframes`
 
 const clearDropdown = keyframes`
   from {
+    display: grid;
     height: 9.375rem;
     width: 10rem,;
 
@@ -156,6 +159,7 @@ const clearDropdown = keyframes`
   }
 
   to {
+    display: none;
     height: 0;
     width: 10rem;
 
@@ -192,9 +196,7 @@ const Dropdown = styled.div<{ selected: boolean }>`
   animation-timing-function: cubic-bezier(0, 0.44, 0.47, 1.32);
 `;
 
-const DropdownHeader = styled.div`
-  
-`;
+const DropdownHeader = styled.div``;
 
 const SelectIcon = styled.div<{ selected: boolean }>`
   width: 1rem;
