@@ -5,7 +5,7 @@ const { Configuration, OpenAIApi } = require("openai");
 router.post("/chat", async (req, res) => {
   const question = req.body.text;
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   try {
     const openai = new OpenAIApi(configuration);

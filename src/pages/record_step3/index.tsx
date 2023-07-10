@@ -36,7 +36,7 @@ const RecordStep3 = () => {
           />
         </TextSection>
         <NextButton
-          to="/record/step4"
+          to="/notloggedin"
           onClick={async () => {
             const response = await axios.post(
               "http://localhost:3232/api/image/create",
@@ -46,7 +46,7 @@ const RecordStep3 = () => {
             );
 
             setImgInfo({
-              imgurl: response
+              imgurl: response,
             });
           }}
         >
