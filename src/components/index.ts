@@ -8,3 +8,4 @@ export { default as Signup } from "./signup";
 export { default as HeaderLogo } from "./common/logo/headerlogo";
 export { default as RegisterLogo } from "./common/logo/registerlogo";
 export { default as ChatBox } from "./chatbox";
+export { default as Calender } from "./calenderItem";

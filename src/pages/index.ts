@@ -8,3 +8,4 @@ export { default as RecordStep3 } from "./record_step3";
 export { default as RecordStep4 } from "./record_step4";
 export { default as CalenderPage } from "./calender";
 export { default as NotLoggedIn } from "./notloggedin";
+export { default as LadingPage } from "./landing";

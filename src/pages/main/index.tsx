@@ -127,7 +127,6 @@ const MainText = styled.h1`
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 16px;
-
   /* color: linear-gradient(#312132 , rgba(33, 37, 50, 0.5)); //#212532 50% */
 
   color: linear-gradient(rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
@@ -144,7 +143,6 @@ const SubText = styled.h2`
   font-family: "NanumSquareRound";
   font-size: 1.25rem;
 `;
-
 const Icon = styled.img`
   width: 35px;
   margin-top: 5px;

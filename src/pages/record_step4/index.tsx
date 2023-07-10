@@ -3,6 +3,7 @@ import * as C from "../../components/index";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DiaryInfo, ImgInfo } from "../../state";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const RecordStep4 = () => {
   const [diaryInfo, setDiaryInfo] = useRecoilState(DiaryInfo);
