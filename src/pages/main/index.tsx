@@ -143,6 +143,7 @@ const SubText = styled.h2`
   font-family: "NanumSquareRound";
   font-size: 1.25rem;
 `;
+
 const Icon = styled.img`
   width: 35px;
   margin-top: 5px;
