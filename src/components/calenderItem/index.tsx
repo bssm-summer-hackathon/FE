@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { keyframes, styled, css } from "styled-components";
 
 const Calender = () => {
   const dateArray = ["일", "월", "화", "수", "목", "금", "토"];
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [isDropDownSelected, setIsDropDownSelected] = useState(false);
+  const [isDropDownSelected, setIsDropDownSelected] = useState(0);
+
+  console.log(isDropDownSelected);
 
   const getDatesStartToLast = (year: number, month: number) => {
     const result = [];
@@ -44,18 +46,20 @@ const Calender = () => {
     getDatesStartToLast(currentYear, currentMonth + 1)
   );
 
+  useEffect(() => {}, []);
+
   return (
     <Container>
       <CalenderContainer>
         <CalenderHeader>
           <SelectDate
-            onClick={() => setIsDropDownSelected(!isDropDownSelected)}
+            onClick={() => setIsDropDownSelected(isDropDownSelected + 1)}
           >
             2023년 7월
           </SelectDate>
           <SelectIcon
             selected={isDropDownSelected}
-            onClick={() => setIsDropDownSelected(!isDropDownSelected)}
+            onClick={() => setIsDropDownSelected(isDropDownSelected + 1)}
           ></SelectIcon>
           <Dropdown selected={isDropDownSelected}></Dropdown>
           <Dropdown selected={isDropDownSelected}></Dropdown>
@@ -151,7 +155,7 @@ const clearDropdown = keyframes`
   from {
     display: grid;
     height: 9.375rem;
-    width: 10rem,;
+    width: 10rem;
 
     opacity: 1;
     font-size: 1.5rem;
@@ -169,13 +173,14 @@ const clearDropdown = keyframes`
   }
 `;
 
-const Dropdown = styled.div<{ selected: boolean }>`
+const Dropdown = styled.div<{ selected: number }>`
   width: 10rem;
   height: 9.375rem;
 
   position: absolute;
   top: 120%;
   left: 0;
+  opacity: 0;
 
   display: grid;
   grid-template-columns: repeat(1fr, 4);
@@ -185,7 +190,9 @@ const Dropdown = styled.div<{ selected: boolean }>`
   grid-gap: 1rem;
 
   ${(props) =>
-    props.selected
+    props.selected === 0
+      ? ""
+      : props.selected % 2 === 1
       ? css`
           animation: ${showDropdown} forwards;
         `
@@ -198,14 +205,15 @@ const Dropdown = styled.div<{ selected: boolean }>`
 
 const DropdownHeader = styled.div``;
 
-const SelectIcon = styled.div<{ selected: boolean }>`
+const SelectIcon = styled.div<{ selected: number }>`
   width: 1rem;
   height: 1rem;
 
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2EYYzX-Neo0gHlz4LpLOxAlcbNZCwwcW0rQ&usqp=CAU");
   background-size: cover;
 
-  transform: ${(props) => (props.selected ? "rotate(90deg)" : "rotate(0deg)")};
+  transform: ${(props) =>
+    props.selected % 2 === 1 ? "rotate(90deg)" : "rotate(0deg)"};
 
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0, 0.44, 0.47, 1.32);
