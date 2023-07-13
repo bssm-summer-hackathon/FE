@@ -61,8 +61,12 @@ const Calender = () => {
             selected={isDropDownSelected}
             onClick={() => setIsDropDownSelected(isDropDownSelected + 1)}
           ></SelectIcon>
-          <Dropdown selected={isDropDownSelected}></Dropdown>
-          <Dropdown selected={isDropDownSelected}></Dropdown>
+          <Dropdown selected={isDropDownSelected}>
+            <DropdownHeader></DropdownHeader>
+          </Dropdown>
+          <Dropdown selected={isDropDownSelected}>
+            <DropdownHeader></DropdownHeader>
+          </Dropdown>
         </CalenderHeader>
         <CalenderSection>
           <WeekDiv>
