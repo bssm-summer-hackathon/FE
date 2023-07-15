@@ -61,8 +61,16 @@ const Calender = () => {
             selected={isDropDownSelected}
             onClick={() => setIsDropDownSelected(isDropDownSelected + 1)}
           ></SelectIcon>
-          <Dropdown selected={isDropDownSelected}></Dropdown>
-          <Dropdown selected={isDropDownSelected}></Dropdown>
+          <Dropdown selected={isDropDownSelected}>
+            <DropdownHeader>
+              <DropdownBody></DropdownBody>
+            </DropdownHeader>
+          </Dropdown>
+          <Dropdown selected={isDropDownSelected}>
+            <DropdownHeader>
+              <DropdownBody></DropdownBody>
+            </DropdownHeader>
+          </Dropdown>
         </CalenderHeader>
         <CalenderSection>
           <WeekDiv>
@@ -204,6 +212,8 @@ const Dropdown = styled.div<{ selected: number }>`
 `;
 
 const DropdownHeader = styled.div``;
+
+const DropdownBody = styled.div``;
 
 const SelectIcon = styled.div<{ selected: number }>`
   width: 1rem;
