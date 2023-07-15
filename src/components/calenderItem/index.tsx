@@ -190,9 +190,9 @@ const Dropdown = styled.div<{ selected: number }>`
   left: 0;
   opacity: 0;
 
-  display: grid;
-  grid-template-columns: repeat(1fr, 4);
-  grid-template-rows: repeat(1fr, 3);
+  display: flex;
+  flex-direction: column;
+
   background-color: aliceblue;
 
   grid-gap: 1rem;
@@ -213,7 +213,11 @@ const Dropdown = styled.div<{ selected: number }>`
 
 const DropdownHeader = styled.div``;
 
-const DropdownBody = styled.div``;
+const DropdownBody = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1fr, 4);
+  grid-template-rows: repeat(1fr, 3);
+`;
 
 const SelectIcon = styled.div<{ selected: number }>`
   width: 1rem;
